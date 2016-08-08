@@ -1,0 +1,1485 @@
+Started GET "/" for 127.0.0.1 at 2016-08-08 14:19:54 +0300
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /var/lib/gems/2.3.0/gems/railties-5.0.0/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/railties-5.0.0/lib/rails/templates/rails/welcome/index.html.erb (5.8ms)
+Completed 200 OK in 58ms (Views: 12.4ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (124.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (98.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePosts (20160808112102)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "content" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160808112102"]]
+  [1m[35m (111.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", 2016-08-08 11:21:14 UTC], ["updated_at", 2016-08-08 11:21:14 UTC]]
+  [1m[35m (68.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/" for 127.0.0.1 at 2016-08-08 14:22:50 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 1575ms (Views: 1570.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2016-08-08 14:22:54 +0300
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (31.7ms)
+  Rendered posts/new.html.erb within layouts/application (33.8ms)
+Completed 200 OK in 104ms (Views: 86.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2016-08-08 14:22:57 +0300
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Fmd2ARuMwfaiTus1xvL6Csh2QWA8LHVKQf+1rFeZ8nDu18+rP4HnlV+f0cY2i4e6P2LlyOMo4sOYLUtI9yRqLQ==", "post"=>{"title"=>"asdf", "content"=>"asdfasd"}, "commit"=>"Create Post"}
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "asdf"], ["content", "asdfasd"], ["created_at", 2016-08-08 11:22:57 UTC], ["updated_at", 2016-08-08 11:22:57 UTC]]
+  [1m[35m (196.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 210ms (ActiveRecord: 197.6ms)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2016-08-08 14:22:57 +0300
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 41ms (Views: 32.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2016-08-08 14:22:58 +0300
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 31ms (Views: 29.0ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/posts/1" for 127.0.0.1 at 2016-08-08 14:23:01 +0300
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"nlzTgG88T7NZodd/Jpn5d19AJrXLmf/68wYbA+DbFpZufGEa755JoFW53EkGFpmbhj48hK7+snLf26lKzK3jTQ==", "id"=>"1"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 1]]
+  [1m[35m (103.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 111ms (ActiveRecord: 104.7ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2016-08-08 14:23:01 +0300
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 31ms (Views: 29.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2016-08-08 14:24:05 +0300
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered posts/index.html.erb within layouts/application (5.1ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    18: 
+    19: 
+    20:     <!-- Modal  create action -->
+    21:       <%= form_for(@post, remote: true) do |f| %>
+    22:         <div class="modal fade" id="mynewpost" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    23:         <div class="modal-dialog">
+    24:           <div class="modal-content">
+  
+app/views/posts/index.html.erb:21:in `_app_views_posts_index_html_erb___913784488060416773_70279591127840'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.4ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (24.3ms)
+Started GET "/posts" for 127.0.0.1 at 2016-08-08 14:24:25 +0300
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered posts/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 39ms (Views: 26.4ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2016-08-08 14:24:29 +0300
+Processing by PostsController#create as JS
+  Parameters: {"utf8"=>"✓", "post"=>{"title"=>"asdf", "content"=>"sadfasdf"}, "commit"=>"Create"}
+  [1m[35m (0.6ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "asdf"], ["content", "sadfasdf"], ["created_at", 2016-08-08 11:24:29 UTC], ["updated_at", 2016-08-08 11:24:29 UTC]]
+  [1m[35m (92.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/2
+Completed 200 OK in 102ms (ActiveRecord: 94.6ms)
+
+
+Started GET "/posts/2" for 127.0.0.1 at 2016-08-08 14:24:29 +0300
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 28ms (Views: 23.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/posts/2" for 127.0.0.1 at 2016-08-08 14:25:04 +0300
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 38ms (Views: 24.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-08 14:25:07 +0300
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered collection of posts/_post.html.erb [1 times] (3.7ms)
+  Rendered posts/index.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 30ms (Views: 26.9ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2016-08-08 14:25:11 +0300
+Processing by PostsController#create as JS
+  Parameters: {"utf8"=>"✓", "post"=>{"title"=>"asdf", "content"=>"asfd"}, "commit"=>"Create"}
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "asdf"], ["content", "asfd"], ["created_at", 2016-08-08 11:25:11 UTC], ["updated_at", 2016-08-08 11:25:11 UTC]]
+  [1m[35m (97.7ms)[0m  [1m[36mcommit transaction[0m
+  Rendering posts/create.js.erb
+  Rendered posts/_post.html.erb (3.1ms)
+  Rendered posts/create.js.erb (5.0ms)
+Completed 200 OK in 114ms (Views: 7.3ms | ActiveRecord: 98.4ms)
+
+
+Started DELETE "/posts/3" for 127.0.0.1 at 2016-08-08 14:25:13 +0300
+Processing by PostsController#destroy as JS
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 3]]
+  [1m[35m (84.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts
+Completed 200 OK in 92ms (ActiveRecord: 84.7ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2016-08-08 14:25:13 +0300
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered collection of posts/_post.html.erb [1 times] (4.2ms)
+  Rendered posts/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 32ms (Views: 29.4ms | ActiveRecord: 0.4ms)
+
+
+Started PUT "/posts/2" for 127.0.0.1 at 2016-08-08 14:25:16 +0300
+Processing by PostsController#update as JS
+  Parameters: {"utf8"=>"✓", "post"=>{"title"=>"asdf", "content"=>"sadfasdfasdf"}, "commit"=>"Update", "id"=>"2"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[33mUPDATE "posts" SET "content" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["content", "sadfasdfasdf"], ["updated_at", 2016-08-08 11:25:16 UTC], ["id", 2]]
+  [1m[35m (78.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/2
+Completed 200 OK in 92ms (ActiveRecord: 81.1ms)
+
+
+Started GET "/posts/2" for 127.0.0.1 at 2016-08-08 14:25:16 +0300
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 28ms (Views: 25.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2016-08-08 14:25:18 +0300
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered collection of posts/_post.html.erb [1 times] (4.1ms)
+  Rendered posts/index.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 41ms (Views: 38.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2016-08-08 14:25:43 +0300
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered collection of posts/_post.html.erb [1 times] (3.7ms)
+  Rendered posts/index.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 42ms (Views: 29.2ms | ActiveRecord: 1.6ms)
+
+
+Started PUT "/posts/2" for 127.0.0.1 at 2016-08-08 14:25:46 +0300
+Processing by PostsController#update as JS
+  Parameters: {"utf8"=>"✓", "post"=>{"title"=>"asdf", "content"=>"sadfasdfasdfasdfa"}, "commit"=>"Update", "id"=>"2"}
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "posts" SET "content" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["content", "sadfasdfasdfasdfa"], ["updated_at", 2016-08-08 11:25:46 UTC], ["id", 2]]
+  [1m[35m (218.7ms)[0m  [1m[36mcommit transaction[0m
+  Rendering posts/update.js.erb
+  Rendered posts/_post.html.erb (4.0ms)
+  Rendered posts/update.js.erb (6.4ms)
+Completed 200 OK in 239ms (Views: 9.5ms | ActiveRecord: 220.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-08 14:29:46 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered collection of posts/_post.html.erb [1 times] (30.0ms)
+  Rendered posts/index.html.erb within layouts/application (36.1ms)
+Completed 200 OK in 441ms (Views: 420.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-08 14:29:47 +0300
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered collection of posts/_post.html.erb [1 times] (4.8ms)
+  Rendered posts/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 35ms (Views: 32.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2016-08-08 14:29:55 +0300
+Processing by PostsController#create as JS
+  Parameters: {"utf8"=>"✓", "post"=>{"title"=>"Hello", "content"=>"Helen!"}, "commit"=>"Create"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Hello"], ["content", "Helen!"], ["created_at", 2016-08-08 11:29:55 UTC], ["updated_at", 2016-08-08 11:29:55 UTC]]
+  [1m[35m (94.5ms)[0m  [1m[36mcommit transaction[0m
+  Rendering posts/create.js.erb
+  Rendered posts/_post.html.erb (3.8ms)
+  Rendered posts/create.js.erb (6.0ms)
+Completed 200 OK in 115ms (Views: 8.6ms | ActiveRecord: 95.3ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeviseCreateUsers (20160808113935)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "admin" boolean, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160808113935"]]
+  [1m[35m (133.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+Started GET "/" for 127.0.0.1 at 2016-08-08 14:46:53 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 583ms (Views: 568.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-08-08 14:46:59 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (3.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (86.4ms)
+Completed 200 OK in 202ms (Views: 133.2ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-08-08 14:47:04 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wCiLR01+L1nDoDYYqjlZL9RYMEqA880cvh0dUVtBrghOHqcSw7j37ibQ0fR2bwslRhZT8J+FGSKbPa7f5/V65Q==", "user"=>{"email"=>"i.kamrakov@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "i.kamrakov@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 33ms (ActiveRecord: 0.5ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wCiLR01+L1nDoDYYqjlZL9RYMEqA880cvh0dUVtBrghOHqcSw7j37ibQ0fR2bwslRhZT8J+FGSKbPa7f5/V65Q==", "user"=>{"email"=>"i.kamrakov@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 371ms (Views: 37.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2016-08-08 14:47:06 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 50ms (Views: 49.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2016-08-08 14:47:14 +0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zWl3cPMSLi1PIqwbHFsTkgBvLcxMYA5ewKzLeK6SQ1HXTky0DrsETJ28bxT8N0xXhXejID+YvoI97Nd7fO35Pg==", "user"=>{"email"=>"i.kamrakov@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "i.kamrakov@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.9ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "i.kamrakov@gmail.com"], ["encrypted_password", "$2a$11$CW3SLQGA7NjT5U50jXt5ueNzvj7Zzr6yJY0LiW78JNwaADYvf1Nzu"], ["created_at", 2016-08-08 11:47:15 UTC], ["updated_at", 2016-08-08 11:47:15 UTC]]
+  [1m[35m (81.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.9ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", 2016-08-08 11:47:15 UTC], ["last_sign_in_at", 2016-08-08 11:47:15 UTC], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", 2016-08-08 11:47:15 UTC], ["id", 1]]
+  [1m[35m (90.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 568ms (ActiveRecord: 176.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-08 14:47:15 +0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2016-08-08 14:47:15 +0300
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered collection of posts/_post.html.erb [2 times] (7.5ms)
+  Rendered posts/index.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 53ms (Views: 40.6ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2016-08-08 14:47:22 +0300
+Processing by PostsController#create as JS
+  Parameters: {"utf8"=>"✓", "post"=>{"title"=>"asdf", "content"=>"sdfasdfas"}, "commit"=>"Create"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "asdf"], ["content", "sdfasdfas"], ["created_at", 2016-08-08 11:47:22 UTC], ["updated_at", 2016-08-08 11:47:22 UTC]]
+  [1m[35m (96.5ms)[0m  [1m[36mcommit transaction[0m
+  Rendering posts/create.js.erb
+  Rendered posts/_post.html.erb (14.6ms)
+  Rendered posts/create.js.erb (17.6ms)
+Completed 200 OK in 134ms (Views: 22.7ms | ActiveRecord: 98.4ms)
+
+
+Started DELETE "/posts/5" for 127.0.0.1 at 2016-08-08 14:47:24 +0300
+Processing by PostsController#destroy as JS
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 5]]
+  [1m[35m (120.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts
+Completed 200 OK in 130ms (ActiveRecord: 121.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2016-08-08 14:47:24 +0300
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered collection of posts/_post.html.erb [2 times] (6.2ms)
+  Rendered posts/index.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 38ms (Views: 33.9ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2016-08-08 14:47:26 +0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"HQKwqBRu88gimvVFOEvMcOAWIICUWKOQ92pav+8R5ITtIgIylMz12y6C/nMYxKycOWg6sfE/7hjbt+j2w2cRXw=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 305ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-08 14:47:26 +0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 27ms (Views: 25.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-08 14:48:49 +0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 29ms (Views: 26.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-08 15:29:51 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 8622ms (Views: 8606.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-08-08 15:30:12 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering vendor/bundle/ruby/2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.5ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (27.4ms)
+Completed 200 OK in 82ms (Views: 60.8ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-08-08 15:30:14 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RTMyPNxO579NvYNRhpb3Oo+b8/tULb9UwYbmxs7Ulft8sgr+X11Bwgn54PycykikWE7qdWOU3hhQHWnDbRrtSQ==", "user"=>{"email"=>"i.kamrakov@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "i.kamrakov@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (3.1ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", 2016-08-08 12:30:14 UTC], ["sign_in_count", 2], ["updated_at", 2016-08-08 12:30:14 UTC], ["id", 1]]
+  [1m[35m (64.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 262ms (ActiveRecord: 67.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-08 15:30:14 +0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2016-08-08 15:30:14 +0300
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered collection of posts/_post.html.erb [2 times] (5.9ms)
+  Rendered posts/index.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 54ms (Views: 40.0ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2016-08-08 15:30:36 +0300
+Processing by RailsAdmin::MainController#dashboard as HTML
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application (13.7ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/layouts/rails_admin/_secondary_navigation.html.haml (2.8ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/layouts/rails_admin/_navigation.html.haml (7.6ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (2.8ms)
+  Rendering vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/layouts/rails_admin/pjax.html.haml
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/layouts/rails_admin/pjax.html.haml (4.5ms)
+Completed 200 OK in 571ms (Views: 363.6ms | ActiveRecord: 1.0ms)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[33mUPDATE "users" SET "admin" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["admin", true], ["updated_at", 2016-08-08 12:35:49 UTC], ["id", 1]]
+  [1m[35m (84.2ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/admin/?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2016-08-08 15:36:21 +0300
+Processing by RailsAdmin::MainController#dashboard as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/pjax
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/pjax (15.7ms)
+Completed 200 OK in 42ms (Views: 31.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-08 15:36:25 +0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2016-08-08 15:36:25 +0300
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered collection of posts/_post.html.erb [2 times] (5.1ms)
+  Rendered posts/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 54ms (Views: 49.7ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2016-08-08 15:36:36 +0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"3jXvrpndIOEhpA0F5hbXAiNZb4k70G1gXb9l8O3Q+u1EI/t3gC0t2SUFeEvcI+VeUXtO5enzcPsrFm6giocgtw=="}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 11ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-08 15:36:36 +0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 33ms (Views: 31.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-08-08 15:36:37 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering vendor/bundle/ruby/2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (5.5ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 79ms (Views: 76.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2016-08-08 15:36:40 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering vendor/bundle/ruby/2.3.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.2ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 44ms (Views: 41.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2016-08-08 15:36:46 +0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SH0GcCrrs9HWca5TTgtIJuiGbi6XEfIbH5/SN8ZFM4WA6NHOQY6+ymdlapbnwTkVrm/yezRpDvnJcBEtlv9Pcw==", "user"=>{"email"=>"i.kamrakov@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "i.kamrakov@example.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "i.kamrakov@example.com"], ["encrypted_password", "$2a$11$9Kb1VHjKbmYHBnnpJnICv.xeVoxqXawc0FxG2qi.CbekqbdHlm3yC"], ["created_at", 2016-08-08 12:36:46 UTC], ["updated_at", 2016-08-08 12:36:46 UTC]]
+  [1m[35m (182.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", 2016-08-08 12:36:46 UTC], ["last_sign_in_at", 2016-08-08 12:36:46 UTC], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", 2016-08-08 12:36:46 UTC], ["id", 2]]
+  [1m[35m (59.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 431ms (ActiveRecord: 243.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-08 15:36:46 +0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2016-08-08 15:36:46 +0300
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered collection of posts/_post.html.erb [2 times] (4.8ms)
+  Rendered posts/index.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 47ms (Views: 42.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2016-08-08 15:36:51 +0300
+Processing by RailsAdmin::MainController#dashboard as HTML
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application (10.6ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/layouts/rails_admin/_secondary_navigation.html.haml (2.5ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/layouts/rails_admin/_navigation.html.haml (6.6ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (2.8ms)
+  Rendering vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/layouts/rails_admin/pjax.html.haml
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/layouts/rails_admin/pjax.html.haml (3.8ms)
+Completed 200 OK in 263ms (Views: 254.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2016-08-08 15:37:00 +0300
+Processing by RailsAdmin::MainController#dashboard as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/pjax
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/pjax (11.4ms)
+Completed 200 OK in 39ms (Views: 29.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-08 15:37:01 +0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2016-08-08 15:37:01 +0300
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (2.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered collection of posts/_post.html.erb [2 times] (7.2ms)
+  Rendered posts/index.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 72ms (Views: 64.9ms | ActiveRecord: 2.7ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2016-08-08 15:37:04 +0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"dt+RadOSnY38F277lU5/ZUbZ1b+jBTfc2FeMEApFU0sko5j2apv5iIClPyDkyu4SZ7pqnPm8tvSvkqOX2cjaRA=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-08 15:37:04 +0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 34ms (Views: 32.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-08-08 15:37:18 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering vendor/bundle/ruby/2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.5ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (43.3ms)
+Completed 200 OK in 531ms (Views: 500.1ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-08-08 15:37:21 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"X9tFQguSw2Sks0a7JdYU9BnEX105rqWR5NkX+l+Xf4GHlOZGv69yvhiKhUtbR4eNtkUYiRdqAdKmwwkKTjnNew==", "user"=>{"email"=>"i.kamrakov@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "i.kamrakov@example.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.1ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", 2016-08-08 12:37:21 UTC], ["sign_in_count", 2], ["updated_at", 2016-08-08 12:37:21 UTC], ["id", 2]]
+  [1m[35m (75.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 282ms (ActiveRecord: 78.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-08 15:37:21 +0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 4ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2016-08-08 15:37:21 +0300
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered collection of posts/_post.html.erb [2 times] (7.8ms)
+  Rendered posts/index.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 64ms (Views: 49.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2016-08-08 15:37:25 +0300
+Processing by RailsAdmin::MainController#dashboard as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :_authorize! rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-08 15:37:25 +0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2016-08-08 15:37:26 +0300
+Processing by RailsAdmin::MainController#dashboard as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :_authorize! rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-08 15:37:26 +0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2016-08-08 15:37:26 +0300
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered collection of posts/_post.html.erb [2 times] (5.0ms)
+  Rendered posts/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 50ms (Views: 47.0ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2016-08-08 15:38:27 +0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"1NlZw008J75f+cix3YdimNkux4n0f9OAdAOoahgdttV9NoGgVHS4INwdTTr5oD27Sy8//wNq9T5Ra5Ns7tPDEg=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 12ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-08 15:38:27 +0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 48ms (Views: 46.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-08-08 15:38:28 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering vendor/bundle/ruby/2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (2.1ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (27.1ms)
+Completed 200 OK in 102ms (Views: 99.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-08-08 15:38:33 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"15DPnNnGEZH81FbkA3IRl0vvsLi88xO6LOREHKC7kWvbSnVhU2K+sBhJxVDpeKsgyorryn/QaV5oPEkdKEHKnQ==", "user"=>{"email"=>"i.kamrakov@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "i.kamrakov@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", 2016-08-08 12:38:33 UTC], ["last_sign_in_at", 2016-08-08 12:30:14 UTC], ["sign_in_count", 3], ["updated_at", 2016-08-08 12:38:33 UTC], ["id", 1]]
+  [1m[35m (61.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 253ms (ActiveRecord: 66.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-08 15:38:33 +0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2016-08-08 15:38:33 +0300
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered collection of posts/_post.html.erb [2 times] (8.3ms)
+  Rendered posts/index.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 79ms (Views: 74.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2016-08-08 15:38:36 +0300
+Processing by RailsAdmin::MainController#dashboard as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application (13.1ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/layouts/rails_admin/_secondary_navigation.html.haml (2.5ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/layouts/rails_admin/_navigation.html.haml (6.4ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (3.7ms)
+  Rendering vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/layouts/rails_admin/pjax.html.haml
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/layouts/rails_admin/pjax.html.haml (4.2ms)
+Completed 200 OK in 363ms (Views: 217.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/admin/post/new?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2016-08-08 15:38:42 +0300
+Processing by RailsAdmin::MainController#new as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"post"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/new.html.haml within layouts/rails_admin/pjax
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/_form_field.html.haml (1.8ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/_form_text.html.haml (1.2ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/_submit_buttons.html.haml (5.8ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/new.html.haml within layouts/rails_admin/pjax (23.4ms)
+Completed 200 OK in 50ms (Views: 38.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/admin/post/new" for 127.0.0.1 at 2016-08-08 15:38:49 +0300
+Processing by RailsAdmin::MainController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"U8UCh68MjTITn46/k/KXNcKnl9SRxxFK/oB6W0MZWa/oufT/j0PCujdlxa1ince9trA95QU8J8J3HLnR6W6C0g==", "post"=>{"title"=>"asdfaafsdfsadf", "content"=>"asdfasdf"}, "return_to"=>"http://localhost:3000/admin", "_save"=>"", "model_name"=>"post"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "asdfaafsdfsadf"], ["content", "asdfasdf"], ["created_at", 2016-08-08 12:38:49 UTC], ["updated_at", 2016-08-08 12:38:49 UTC]]
+  [1m[35m (196.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 213ms (ActiveRecord: 198.8ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2016-08-08 15:38:49 +0300
+Processing by RailsAdmin::MainController#dashboard as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application (12.6ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/layouts/rails_admin/_secondary_navigation.html.haml (2.9ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/layouts/rails_admin/_navigation.html.haml (6.8ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (3.2ms)
+  Rendering vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/layouts/rails_admin/pjax.html.haml
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/layouts/rails_admin/pjax.html.haml (4.4ms)
+Completed 200 OK in 162ms (Views: 153.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-08 15:38:53 +0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2016-08-08 15:38:53 +0300
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered collection of posts/_post.html.erb [3 times] (6.1ms)
+  Rendered posts/index.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 50ms (Views: 45.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2016-08-08 15:38:59 +0300
+Processing by RailsAdmin::MainController#dashboard as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application (10.2ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/layouts/rails_admin/_secondary_navigation.html.haml (3.5ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/layouts/rails_admin/_navigation.html.haml (8.8ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (3.3ms)
+  Rendering vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/layouts/rails_admin/pjax.html.haml
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/layouts/rails_admin/pjax.html.haml (4.9ms)
+Completed 200 OK in 171ms (Views: 158.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/admin/user?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2016-08-08 15:39:09 +0300
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"user"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY users.id desc LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax (90.4ms)
+Completed 200 OK in 121ms (Views: 103.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/admin/user/new?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2016-08-08 15:39:17 +0300
+Processing by RailsAdmin::MainController#new as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"user"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/new.html.haml within layouts/rails_admin/pjax
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/_form_boolean.html.haml (1.9ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/_form_field.html.haml (1.4ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/_form_field.html.haml (0.3ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/_form_field.html.haml (0.5ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/_form_datetime.html.haml (2.6ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/_form_datetime.html.haml (0.6ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/_form_field.html.haml (1.4ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/_form_datetime.html.haml (0.7ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/_form_datetime.html.haml (1.1ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/_form_field.html.haml (0.3ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/_form_field.html.haml (0.4ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/_submit_buttons.html.haml (5.2ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/new.html.haml within layouts/rails_admin/pjax (50.1ms)
+Completed 200 OK in 77ms (Views: 64.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/admin/user/new" for 127.0.0.1 at 2016-08-08 15:39:58 +0300
+Processing by RailsAdmin::MainController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"m9ymQsn0GKECTkWJwU/gftxyxH2FCumTBdwm5njNZwrHi35aMPyJWjbsooEc8F1HK2wmqoxVJQ6NP4m9yaSiVQ==", "user"=>{"admin"=>"0", "email"=>"1@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "reset_password_sent_at"=>"[FILTERED]", "remember_created_at"=>"", "sign_in_count"=>"0", "current_sign_in_at"=>"", "last_sign_in_at"=>"", "current_sign_in_ip"=>"", "last_sign_in_ip"=>""}, "return_to"=>"http://localhost:3000/admin", "_save"=>"", "model_name"=>"user"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "1@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "users" ("admin", "email", "encrypted_password", "current_sign_in_ip", "last_sign_in_ip", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["admin", false], ["email", "1@gmail.com"], ["encrypted_password", "$2a$11$wRo54WUF/5WSaWzYR1SqQOMXOL8F3V2YUKqPOsughtmRl4drHA9r."], ["current_sign_in_ip", ""], ["last_sign_in_ip", ""], ["created_at", 2016-08-08 12:39:58 UTC], ["updated_at", 2016-08-08 12:39:58 UTC]]
+  [1m[35m (86.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 273ms (ActiveRecord: 87.8ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2016-08-08 15:39:58 +0300
+Processing by RailsAdmin::MainController#dashboard as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application (12.8ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/layouts/rails_admin/_secondary_navigation.html.haml (2.9ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/layouts/rails_admin/_navigation.html.haml (7.2ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (3.4ms)
+  Rendering vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/layouts/rails_admin/pjax.html.haml
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/layouts/rails_admin/pjax.html.haml (5.1ms)
+Completed 200 OK in 180ms (Views: 172.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2016-08-08 15:40:04 +0300
+Processing by RailsAdmin::MainController#dashboard as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/pjax
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/pjax (13.6ms)
+Completed 200 OK in 44ms (Views: 28.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-08 15:40:04 +0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2016-08-08 15:40:04 +0300
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered collection of posts/_post.html.erb [3 times] (9.5ms)
+  Rendered posts/index.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 57ms (Views: 53.3ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2016-08-08 15:40:06 +0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"maY19O8s2E6L3aMvLPeuRE453MKHXDqUE+naTdZrAupD8axaKjdAWFmrhit+EQqN7/C0kga/6/C7Weeamjv69g=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-08 15:40:06 +0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 47ms (Views: 44.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-08-08 15:40:07 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering vendor/bundle/ruby/2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.8ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (14.7ms)
+Completed 200 OK in 85ms (Views: 81.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-08-08 15:40:19 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XY+5ifYHRIZYmfwrVWrawThtE3y77HNTmuCat7OZn2QgoW39IJStd3P9ndBNTzXb5mv7Px3PHdv4U6PbfRZMeg==", "user"=>{"email"=>"1@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "1@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", 2016-08-08 12:40:19 UTC], ["last_sign_in_at", 2016-08-08 12:40:19 UTC], ["current_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", 2016-08-08 12:40:19 UTC], ["id", 3]]
+  [1m[35m (93.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 269ms (ActiveRecord: 95.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-08 15:40:19 +0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2016-08-08 15:40:19 +0300
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered collection of posts/_post.html.erb [3 times] (8.0ms)
+  Rendered posts/index.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 56ms (Views: 51.5ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/posts/2" for 127.0.0.1 at 2016-08-08 15:40:25 +0300
+Processing by PostsController#destroy as JS
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 2]]
+  [1m[35m (183.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts
+Completed 200 OK in 197ms (ActiveRecord: 184.7ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2016-08-08 15:40:25 +0300
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered collection of posts/_post.html.erb [2 times] (6.8ms)
+  Rendered posts/index.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 53ms (Views: 47.7ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/posts/4" for 127.0.0.1 at 2016-08-08 15:40:26 +0300
+Processing by PostsController#destroy as JS
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 4]]
+  [1m[35m (109.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts
+Completed 200 OK in 117ms (ActiveRecord: 110.7ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2016-08-08 15:40:26 +0300
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered collection of posts/_post.html.erb [1 times] (3.6ms)
+  Rendered posts/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 43ms (Views: 38.8ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/posts/6" for 127.0.0.1 at 2016-08-08 15:40:26 +0300
+Processing by PostsController#destroy as JS
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 6]]
+  [1m[35m (115.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts
+Completed 200 OK in 125ms (ActiveRecord: 117.8ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2016-08-08 15:40:26 +0300
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered posts/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 46ms (Views: 41.3ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2016-08-08 15:47:07 +0300
+Processing by PostsController#create as JS
+  Parameters: {"utf8"=>"✓", "post"=>{"title"=>"kuritza ryaba", "content"=>"Skazka\r\nZhili bili ded da baba i bila u nih kuritza ryaba."}, "commit"=>"Create"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "kuritza ryaba"], ["content", "Skazka\r\nZhili bili ded da baba i bila u nih kuritza ryaba."], ["created_at", 2016-08-08 12:47:07 UTC], ["updated_at", 2016-08-08 12:47:07 UTC]]
+  [1m[35m (98.3ms)[0m  [1m[36mcommit transaction[0m
+  Rendering posts/create.js.erb
+  Rendered posts/_post.html.erb (4.3ms)
+  Rendered posts/create.js.erb (6.9ms)
+Completed 200 OK in 123ms (Views: 15.2ms | ActiveRecord: 99.2ms)
+
+
+Started PUT "/posts/7" for 127.0.0.1 at 2016-08-08 15:47:22 +0300
+Processing by PostsController#update as JS
+  Parameters: {"utf8"=>"✓", "post"=>{"title"=>"kuritza ryaba", "content"=>"Skazka\r\nZhili bili ded da baba i bila u nih kuritza ryaba."}, "commit"=>"Update", "id"=>"7"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  Rendering posts/update.js.erb
+  Rendered posts/_post.html.erb (4.1ms)
+  Rendered posts/update.js.erb (6.3ms)
+Completed 200 OK in 21ms (Views: 13.5ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2016-08-08 15:47:27 +0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"rmvGW68fw6LAcoJX0joOUiE8mlkZNx/Ckb3PI8+mnZ1DXvWKzq8RCckh8YJ4af3jjxYS+Qb+h9ajLqRX7lvujA=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-08 15:47:27 +0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 69ms (Views: 67.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-08-08 15:47:33 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering vendor/bundle/ruby/2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.8ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 45ms (Views: 42.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-08-08 15:47:38 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BIjA9Xd1lfzGTpX4EiI28rzb7JI4FckRrsWZggOFfRn+4PFgdUgFHDZFIE4nYIBk9KyFuSFZXstL+9O9TMC+kg==", "user"=>{"email"=>"i.kamrakov@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "i.kamrakov@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", 2016-08-08 12:47:39 UTC], ["last_sign_in_at", 2016-08-08 12:38:33 UTC], ["sign_in_count", 4], ["updated_at", 2016-08-08 12:47:39 UTC], ["id", 1]]
+  [1m[35m (70.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 244ms (ActiveRecord: 70.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-08 15:47:39 +0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2016-08-08 15:47:39 +0300
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered collection of posts/_post.html.erb [1 times] (3.3ms)
+  Rendered posts/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 41ms (Views: 38.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2016-08-08 15:47:47 +0300
+Processing by RailsAdmin::MainController#dashboard as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application (10.5ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/layouts/rails_admin/_secondary_navigation.html.haml (3.2ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/layouts/rails_admin/_navigation.html.haml (21.7ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (2.9ms)
+  Rendering vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/layouts/rails_admin/pjax.html.haml
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/layouts/rails_admin/pjax.html.haml (3.9ms)
+Completed 200 OK in 177ms (Views: 167.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/admin/post?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2016-08-08 15:48:01 +0300
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"post"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY posts.id desc LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax (41.8ms)
+Completed 200 OK in 71ms (Views: 52.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/user?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2016-08-08 15:48:16 +0300
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"user"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY users.id desc LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax (61.7ms)
+Completed 200 OK in 87ms (Views: 71.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-08 15:48:44 +0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2016-08-08 15:48:44 +0300
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered collection of posts/_post.html.erb [1 times] (3.5ms)
+  Rendered posts/index.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 48ms (Views: 44.3ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2016-08-08 15:48:46 +0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"KQ9CDWgvcCREJog1VMPDqs+5Nw4GUxcKSgIISPB8H7Yp1T/fX7wkrTHfmr14XFwqBRp/1NRHJIhbk879a3T9sQ=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 11ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-08 15:48:46 +0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 39ms (Views: 37.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-08-08 15:48:47 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering vendor/bundle/ruby/2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.8ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 50ms (Views: 47.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-08-08 15:48:52 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iUHfX8QtW5D+9JPhliIhXO3DRIdwzS8NZ6MAlhelDVH/l2S72yfk794dTgrxiqUlisxxo9aWz5oPGJZKCoGhKw==", "user"=>{"email"=>"i.kamrakov@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "i.kamrakov@example.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", 2016-08-08 12:48:52 UTC], ["last_sign_in_at", 2016-08-08 12:37:21 UTC], ["sign_in_count", 3], ["updated_at", 2016-08-08 12:48:52 UTC], ["id", 2]]
+  [1m[35m (241.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 415ms (ActiveRecord: 242.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-08 15:48:52 +0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2016-08-08 15:48:52 +0300
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered collection of posts/_post.html.erb [1 times] (3.9ms)
+  Rendered posts/index.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 48ms (Views: 44.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2016-08-08 15:48:56 +0300
+Processing by RailsAdmin::MainController#dashboard as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :_authorize! rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-08 15:48:56 +0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2016-08-08 15:48:57 +0300
+Processing by RailsAdmin::MainController#dashboard as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :_authorize! rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-08 15:48:57 +0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2016-08-08 15:48:58 +0300
+Processing by RailsAdmin::MainController#dashboard as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :_authorize! rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-08 15:48:58 +0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2016-08-08 15:48:58 +0300
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered collection of posts/_post.html.erb [1 times] (3.8ms)
+  Rendered posts/index.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 46ms (Views: 42.6ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2016-08-08 15:49:04 +0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"WK3d2N9AUka270g29Jri0crwrbSd2O5HlS9lMm3BXNbWgV64MCdpxdc34M82WzUL+WJAWZjylRkCF0X7RD7+Kg=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-08 15:49:04 +0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 36ms (Views: 33.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-08-08 15:49:06 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering vendor/bundle/ruby/2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.9ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 47ms (Views: 45.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-08-08 15:49:09 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gz/rnrlvfO537RIlQ6XBIIRwBn7opsFdwQRg6FuuAhlVMpGvYzpH/T2qpBbdt66AWIiY9YCRYTYML65yxWkb3Q==", "user"=>{"email"=>"i.kamrakov@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "i.kamrakov@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", 2016-08-08 12:49:10 UTC], ["last_sign_in_at", 2016-08-08 12:47:39 UTC], ["sign_in_count", 5], ["updated_at", 2016-08-08 12:49:10 UTC], ["id", 1]]
+  [1m[35m (72.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 250ms (ActiveRecord: 74.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-08 15:49:10 +0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2016-08-08 15:49:10 +0300
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered collection of posts/_post.html.erb [1 times] (3.3ms)
+  Rendered posts/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 48ms (Views: 43.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2016-08-08 15:49:12 +0300
+Processing by RailsAdmin::MainController#dashboard as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application (11.6ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/layouts/rails_admin/_secondary_navigation.html.haml (2.6ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/layouts/rails_admin/_navigation.html.haml (6.4ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (2.7ms)
+  Rendering vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/layouts/rails_admin/pjax.html.haml
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/layouts/rails_admin/pjax.html.haml (3.8ms)
+Completed 200 OK in 156ms (Views: 146.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/admin/user?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2016-08-08 15:49:18 +0300
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"user"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY users.id desc LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax (72.5ms)
+Completed 200 OK in 99ms (Views: 86.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/admin/user/2/edit?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2016-08-08 15:49:22 +0300
+Processing by RailsAdmin::MainController#edit as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"user", "id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/edit.html.haml within layouts/rails_admin/pjax
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/_form_boolean.html.haml (2.1ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/_form_field.html.haml (1.2ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/_form_field.html.haml (0.3ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/_form_field.html.haml (0.2ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/_form_datetime.html.haml (2.2ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/_form_datetime.html.haml (0.5ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/_form_field.html.haml (0.3ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/_form_datetime.html.haml (1.0ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/_form_datetime.html.haml (0.8ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/_form_field.html.haml (0.2ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/_form_field.html.haml (0.2ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/_submit_buttons.html.haml (4.6ms)
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/edit.html.haml within layouts/rails_admin/pjax (39.3ms)
+Completed 200 OK in 69ms (Views: 53.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/admin/user/2?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2016-08-08 15:49:25 +0300
+Processing by RailsAdmin::MainController#show as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"user", "id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/show.html.haml within layouts/rails_admin/pjax
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/show.html.haml within layouts/rails_admin/pjax (7.1ms)
+Completed 200 OK in 33ms (Views: 19.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/admin/?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2016-08-08 15:49:29 +0300
+Processing by RailsAdmin::MainController#dashboard as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/pjax
+  Rendered vendor/bundle/ruby/2.3.0/gems/rails_admin-1.0.0.rc/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/pjax (12.2ms)
+Completed 200 OK in 39ms (Views: 27.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-08 15:49:35 +0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2016-08-08 15:49:35 +0300
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered collection of posts/_post.html.erb [1 times] (3.4ms)
+  Rendered posts/index.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 49ms (Views: 45.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2016-08-08 16:11:36 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered collection of posts/_post.html.erb [1 times] (37.9ms)
+  Rendered posts/index.html.erb within layouts/application (44.0ms)
+Completed 200 OK in 535ms (Views: 489.9ms | ActiveRecord: 1.9ms)
+
+
